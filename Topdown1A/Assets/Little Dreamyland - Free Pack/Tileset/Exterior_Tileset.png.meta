@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: 3b6df81b5e53cc34fbddd2128e36d9fa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 16464345309734955
+    second: Exterior_Tileset_0
+  - first:
+      213: -5046842985024631517
+    second: Exterior_Tileset_1
+  - first:
+      213: -4423880586568264804
+    second: Exterior_Tileset_2
+  - first:
+      213: -3969708318003514284
+    second: Exterior_Tileset_3
+  - first:
+      213: 4496981860111081855
+    second: Exterior_Tileset_4
+  - first:
+      213: 4033483737431812386
+    second: Exterior_Tileset_5
+  - first:
+      213: 8976751872357192414
+    second: Exterior_Tileset_6
+  - first:
+      213: 1273654206870177082
+    second: Exterior_Tileset_7
+  - first:
+      213: -172830953524164818
+    second: Exterior_Tileset_8
+  - first:
+      213: -4396487888228893216
+    second: Exterior_Tileset_9
+  - first:
+      213: 4461441384298915789
+    second: Exterior_Tileset_10
+  - first:
+      213: -1681126396045646850
+    second: Exterior_Tileset_11
+  - first:
+      213: -2566525338469266032
+    second: Exterior_Tileset_12
+  - first:
+      213: 306213228201904705
+    second: Exterior_Tileset_13
+  - first:
+      213: 2500496715674909546
+    second: Exterior_Tileset_14
+  - first:
+      213: 6393713254735590572
+    second: Exterior_Tileset_15
+  - first:
+      213: -2332500763159504395
+    second: Exterior_Tileset_16
+  - first:
+      213: 3773743188452901117
+    second: Exterior_Tileset_17
+  - first:
+      213: -608305279955048471
+    second: Exterior_Tileset_18
+  - first:
+      213: -448431522202304761
+    second: Exterior_Tileset_19
+  - first:
+      213: -5203358672341215185
+    second: Exterior_Tileset_20
+  - first:
+      213: 8002608866257379156
+    second: Exterior_Tileset_21
+  - first:
+      213: 6764086209587134836
+    second: Exterior_Tileset_22
+  - first:
+      213: 114424616948714767
+    second: Exterior_Tileset_23
+  - first:
+      213: 6752789102049545468
+    second: Exterior_Tileset_24
+  - first:
+      213: -8577985991553775091
+    second: Exterior_Tileset_25
+  - first:
+      213: -3878732691477631090
+    second: Exterior_Tileset_26
+  - first:
+      213: 8398847186600104126
+    second: Exterior_Tileset_27
+  - first:
+      213: 7950148177121655966
+    second: Exterior_Tileset_28
+  - first:
+      213: 3277859119741102207
+    second: Exterior_Tileset_29
+  - first:
+      213: 3937326739977354499
+    second: Exterior_Tileset_30
+  - first:
+      213: 4147941737017245005
+    second: Exterior_Tileset_31
+  - first:
+      213: 6978761719489353743
+    second: Exterior_Tileset_32
+  - first:
+      213: -3098829066151073120
+    second: Exterior_Tileset_33
+  - first:
+      213: 584671989827584178
+    second: Exterior_Tileset_34
+  - first:
+      213: -4096452330895718885
+    second: Exterior_Tileset_35
+  - first:
+      213: -4197428253966261426
+    second: Exterior_Tileset_36
+  - first:
+      213: 1610915221872920993
+    second: Exterior_Tileset_37
+  - first:
+      213: 6703075311772663444
+    second: Exterior_Tileset_38
+  - first:
+      213: 8477467565084448762
+    second: Exterior_Tileset_39
+  - first:
+      213: -2369824909940253701
+    second: Exterior_Tileset_40
+  - first:
+      213: -4798833120323556873
+    second: Exterior_Tileset_41
+  - first:
+      213: 6231726886661111680
+    second: Exterior_Tileset_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Exterior_Tileset_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 127
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2865ad1c3e7a3000800000000000000
+      internalID: 16464345309734955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 127
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d4f606b0306f9b0800000000000000
+      internalID: -5046842985024631517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 114
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c931ad49b083b92c0800000000000000
+      internalID: -4423880586568264804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 143
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 454bc733153c8e8c0800000000000000
+      internalID: -3969708318003514284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_4
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 129
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f71eb4dfc2d786e30800000000000000
+      internalID: 4496981860111081855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_5
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 129
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22920f0c610d9f730800000000000000
+      internalID: 4033483737431812386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_6
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 127
+        width: 12
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed25cac5444d39c70800000000000000
+      internalID: 8976751872357192414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_7
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 132
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35cd27c0cdeca110800000000000000
+      internalID: 1273654206870177082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_8
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 127
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e270009d92bf99df0800000000000000
+      internalID: -172830953524164818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_9
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 129
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed3fca2f898cf2c0800000000000000
+      internalID: -4396487888228893216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 111
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc72d512d493aed30800000000000000
+      internalID: 4461441384298915789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 111
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3aa2523707ba8e0800000000000000
+      internalID: -1681126396045646850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_12
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 111
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d008d7dced16cd0800000000000000
+      internalID: -2566525338469266032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_13
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 114
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a00840f43ef3400800000000000000
+      internalID: 306213228201904705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 114
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b75d3c38c83b220800000000000000
+      internalID: 2500496715674909546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_15
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 97
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4b83074580bb850800000000000000
+      internalID: 6393713254735590572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_16
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 97
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9dc8df9ea41afd0800000000000000
+      internalID: -2332500763159504395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_17
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 95
+        width: 12
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0094d8f670f5430800000000000000
+      internalID: 3773743188452901117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_18
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 100
+        width: 42
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7e841229dde87f0800000000000000
+      internalID: -608305279955048471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_19
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 95
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f3b0d08e9d6c9f0800000000000000
+      internalID: -448431522202304761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_20
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 95
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2857282bd4f9c7b0800000000000000
+      internalID: -5203358672341215185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_21
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 89
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f99ad3d5afe0f60800000000000000
+      internalID: 8002608866257379156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 89
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4714f88e19cdedd50800000000000000
+      internalID: 6764086209587134836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_23
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 89
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0dc9c63594869100800000000000000
+      internalID: 114424616948714767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 98
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfccac619e9b6bd50800000000000000
+      internalID: 6752789102049545468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_25
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 98
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a0925503fd4f880800000000000000
+      internalID: -8577985991553775091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_26
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 98
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8fe7c1ea29fb2ac0800000000000000
+      internalID: -3878732691477631090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_27
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 98
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb096186403be8470800000000000000
+      internalID: 8398847186600104126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_28
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 95
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c3e0935a9945e60800000000000000
+      internalID: 7950148177121655966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_29
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 66
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7861f7a08b4d7d20800000000000000
+      internalID: 3277859119741102207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_30
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 66
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d3ff42fc134a630800000000000000
+      internalID: 3937326739977354499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_31
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 65
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4dfde77803709930800000000000000
+      internalID: 4147941737017245005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_32
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 65
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08d14e0fca89d060800000000000000
+      internalID: 6978761719489353743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_33
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 64
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aae864f16fbef4d0800000000000000
+      internalID: -3098829066151073120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_34
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 47
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b04bc7b31c2d1800800000000000000
+      internalID: 584671989827584178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 47
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16c3a91f4a7627c0800000000000000
+      internalID: -4096452330895718885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_36
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 47
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e432720fd3dbfb5c0800000000000000
+      internalID: -4197428253966261426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_37
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 47
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9410bfbde1b5610800000000000000
+      internalID: 1610915221872920993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_38
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 47
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49e76ec4b7b160d50800000000000000
+      internalID: 6703075311772663444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_39
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 24
+        width: 18
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af711cbb5d306a570800000000000000
+      internalID: 8477467565084448762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_40
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 47
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb932fdcc0bc1fd0800000000000000
+      internalID: -2369824909940253701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_41
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 24
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f92cbec3be176db0800000000000000
+      internalID: -4798833120323556873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exterior_Tileset_42
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 22
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fbfa8169a8b7650800000000000000
+      internalID: 6231726886661111680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Exterior_Tileset_0: 16464345309734955
+      Exterior_Tileset_1: -5046842985024631517
+      Exterior_Tileset_10: 4461441384298915789
+      Exterior_Tileset_11: -1681126396045646850
+      Exterior_Tileset_12: -2566525338469266032
+      Exterior_Tileset_13: 306213228201904705
+      Exterior_Tileset_14: 2500496715674909546
+      Exterior_Tileset_15: 6393713254735590572
+      Exterior_Tileset_16: -2332500763159504395
+      Exterior_Tileset_17: 3773743188452901117
+      Exterior_Tileset_18: -608305279955048471
+      Exterior_Tileset_19: -448431522202304761
+      Exterior_Tileset_2: -4423880586568264804
+      Exterior_Tileset_20: -5203358672341215185
+      Exterior_Tileset_21: 8002608866257379156
+      Exterior_Tileset_22: 6764086209587134836
+      Exterior_Tileset_23: 114424616948714767
+      Exterior_Tileset_24: 6752789102049545468
+      Exterior_Tileset_25: -8577985991553775091
+      Exterior_Tileset_26: -3878732691477631090
+      Exterior_Tileset_27: 8398847186600104126
+      Exterior_Tileset_28: 7950148177121655966
+      Exterior_Tileset_29: 3277859119741102207
+      Exterior_Tileset_3: -3969708318003514284
+      Exterior_Tileset_30: 3937326739977354499
+      Exterior_Tileset_31: 4147941737017245005
+      Exterior_Tileset_32: 6978761719489353743
+      Exterior_Tileset_33: -3098829066151073120
+      Exterior_Tileset_34: 584671989827584178
+      Exterior_Tileset_35: -4096452330895718885
+      Exterior_Tileset_36: -4197428253966261426
+      Exterior_Tileset_37: 1610915221872920993
+      Exterior_Tileset_38: 6703075311772663444
+      Exterior_Tileset_39: 8477467565084448762
+      Exterior_Tileset_4: 4496981860111081855
+      Exterior_Tileset_40: -2369824909940253701
+      Exterior_Tileset_41: -4798833120323556873
+      Exterior_Tileset_42: 6231726886661111680
+      Exterior_Tileset_5: 4033483737431812386
+      Exterior_Tileset_6: 8976751872357192414
+      Exterior_Tileset_7: 1273654206870177082
+      Exterior_Tileset_8: -172830953524164818
+      Exterior_Tileset_9: -4396487888228893216
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
