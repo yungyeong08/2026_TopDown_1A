@@ -1,4 +1,5 @@
 using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
@@ -26,14 +27,15 @@ public class GameDataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
 
+    // == 기존 플레이어 능력치 반환 기능 (유지) ==
     public int GetPlayerHp()
     {
         int baseHp = gameSettingData.startHp;
         int bounceHp = gameSettingData.hpBonusPerDeath;
 
+        // SaveData에 deathCount가 다시 생겨서 이제 에러가 나지 않습니다!
         return baseHp + bounceHp * saveData.deathCount;
     }
 
@@ -52,10 +54,10 @@ public class GameDataManager : MonoBehaviour
     public void SaveGameResult()
     {
         saveData.deathCount++;
-
         SaveJsonData();
     }
 
+    // == JSON 파일 입출력 코어 시스템 ==
     public void SaveJsonData()
     {
         string json = JsonUtility.ToJson(saveData, true);
@@ -91,6 +93,7 @@ public class GameDataManager : MonoBehaviour
         Debug.Log("JSON 데이터 삭제 완료");
     }
 
+    // == PlayerPrefs 시스템 (유지) ==
     public void LoadPlayerPrefs()
     {
         inTutorialFinished = PlayerPrefs.GetInt("TUTORIAL", 0);
