@@ -4,43 +4,46 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using TMPro;
-using System.IO; // 💾 JSON 파일 입출력을 위해 필수!
 
 public class FarmingTycoon : MonoBehaviour
 {
     public static FarmingTycoon Instance;
 
     [Header("== 타일맵 설정 ==")]
-    public Tilemap tilemap;      // 'BackTilemap' 오브젝트 연결용
-    public TileBase dirtTile;     // 빈 밭 타일 에셋
+    public Tilemap tilemap;
+    public TileBase dirtTile;
 
-    [Header("== 작물 프리팹 리스트 (확장형) ==")]
-    // 💡 여러 작물을 대응할 수 있도록 리스트로 관리합니다 (0번: 당근, 1번: 토마토 등)
+    [Header("== 작물 프리팹 리스트 (총 4개 등록할 것) ==")]
     public List<GameObject> cropPrefabs = new List<GameObject>();
-    private int currentSelectedCropIndex = 0; // 현재 선택된 작물의 번호
+    private int currentSelectedCropIndex = 0;
+
+    [Header("== 씨앗 가격 설정 (3개 묶음 가격 기준) ==")]
+    public List<int> seedPrices = new List<int>() { 120, 300, 600, 1200 };
 
     [Header("== 플레이어 참조 ==")]
-    public Transform playerTransform; // 플레이어 Transform 연결용
+    public Transform playerTransform;
 
     [Header("== 게임 규칙 & 스테이지 세팅 ==")]
     public int money = 100;
-    public int seedCount = 3;
+
+    // 실시간 인게임에서 관리할 4종류의 씨앗 인벤토리 배열
+    public int[] seedCounts = new int[4] { 3, 0, 0, 0 };
+
     public float timeLeft = 60f;
     public int taxGoal = 500;
-    private int currentDay = 1;   // 현재 날짜(Day) 단계 기록
+    public int currentDay = 1;
     private bool isGameOver = false;
 
     [Header("== UI 연결 ==")]
-    public TMP_Text moneyText;      // 💡 보유 자산 텍스트 따로 표기
-    public TMP_Text taxGoalText;    // 💡 목표 세금 텍스트 따로 표기
-    public TMP_Text seedText;
+    public TMP_Text moneyText;
+    public TMP_Text taxGoalText;
+    public TMP_Text seedText; // 현재 선택된 씨앗과 개수를 보여줄 UI
     public TMP_Text timerText;
     public TMP_Text infoText;
 
     [Header("== 버튼 UI 연결 ==")]
-    public Button payTaxButton;     // 💡 목표 충족 시 활성화될 세금 납부 버튼
+    public Button payTaxButton;
 
-    // 게임 내 심어진 작물들을 좌표별로 관리하는 딕셔너리
     private Dictionary<Vector3Int, GameObject> plantedCrops = new Dictionary<Vector3Int, GameObject>();
 
     void Awake()
@@ -50,23 +53,47 @@ public class FarmingTycoon : MonoBehaviour
 
     void Start()
     {
-        // 이전 판의 상속 보너스 로드
-        int bonus = PlayerPrefs.GetInt("LegacyBonus", 0);
-        money += bonus;
-        PlayerPrefs.SetInt("LegacyBonus", 0);
-
-        // 시작 단계에서는 세금 납부 버튼 클릭 잠금
         if (payTaxButton != null) payTaxButton.interactable = false;
 
-        UpdateUI();
-        if (infoText) infoText.text = $"[Day {currentDay}] 세금을 모아 살아남으세요!";
+        // 💡 메인 화면에서 '불러오기'를 누르고 들어왔는지 가장 먼저 체크합니다.
+        if (GameDataManager.Instance != null && GameDataManager.Instance.isLoadTriggered)
+        {
+            GameDataManager.Instance.isLoadTriggered = false;
+            LoadGameData(); // 📂 불러오기를 했을 때는 리셋 로직을 건너뛰고 파일 데이터로 완전히 채웁니다.
+        }
+        else
+        {
+            // 🌱 [새 게임으로 시작할 때만] 로그라이크 보너스 및 리셋 로직 작동
+            int bonus = PlayerPrefs.GetInt("LegacyBonus", 0);
+            money += bonus;
+            PlayerPrefs.SetInt("LegacyBonus", 0);
+
+            // 가방의 모든 씨앗 칸 초기화
+            for (int i = 0; i < seedCounts.Length; i++)
+            {
+                seedCounts[i] = 0;
+            }
+
+            // 기본 씨앗만 제공
+            int seedBonus = PlayerPrefs.GetInt("SeedBonus", 0);
+            seedCounts[0] = 3 + seedBonus;
+
+            if (infoText)
+            {
+                if (seedBonus > 0)
+                    infoText.text = $"[Day {currentDay}] 세금을 모으세요! (로그라이크 보너스: 기본 씨앗 +{seedBonus}개 반영됨)";
+                else
+                    infoText.text = $"[Day {currentDay}] 세금을 모아 살아남으세요!";
+            }
+
+            UpdateUI();
+        }
     }
 
     void Update()
     {
         if (isGameOver) return;
 
-        // 타이머 카운트다운
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
@@ -78,54 +105,78 @@ public class FarmingTycoon : MonoBehaviour
         }
         UpdateUI();
 
-        // 밭 조작 입력 감지
         if (timeLeft > 0 && playerTransform != null && tilemap != null)
         {
-            // [E 키] : 씨앗 심기
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Vector3Int cellPos = tilemap.WorldToCell(playerTransform.position);
                 TryPlantSeed(cellPos);
             }
 
-            // [F 키] : 내 주변 작물 수확
             if (Input.GetKeyDown(KeyCode.F))
             {
                 TryHarvestNearbyCrop();
             }
 
-            // 숫자키 1, 2, 3번으로 등록된 작물 품종 스위칭
+            // 숫자키 1, 2, 3, 4로 씨앗 품종 교체 (0번~3번 인덱스)
             if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchCrop(0);
             if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchCrop(1);
             if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchCrop(2);
+            if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchCrop(3);
         }
     }
 
-    // 작물 품종 바꾸기 함수
     public void SwitchCrop(int index)
     {
         if (index >= 0 && index < cropPrefabs.Count)
         {
             currentSelectedCropIndex = index;
             if (infoText) infoText.text = $"심을 작물이 변경되었습니다! (현재 품종: {cropPrefabs[index].name})";
+            UpdateUI();
         }
     }
 
-    // 씨앗 심기 연산
+    public void BuySpecificSeed(int cropIndex)
+    {
+        if (isGameOver) return;
+        if (cropIndex < 0 || cropIndex >= seedPrices.Count) return;
+
+        // [보유 제한 검사] 현재 수량에서 3개를 더했을 때 최대치인 10개를 초과하는지 체크
+        if (seedCounts[cropIndex] + 3 > 10)
+        {
+            if (infoText) infoText.text = "🎒 가방 공간이 부족합니다! (씨앗은 종류당 최대 10개까지만 보유 가능)";
+            return;
+        }
+
+        int price = seedPrices[cropIndex];
+
+        if (money >= price)
+        {
+            money -= price;
+            seedCounts[cropIndex] += 3;
+
+            if (infoText) infoText.text = $"{cropPrefabs[cropIndex].name} 씨앗 3개 구매 완료! (-{price}원)";
+        }
+        else
+        {
+            if (infoText) infoText.text = "돈이 부족합니다!";
+        }
+        UpdateUI();
+    }
+
     void TryPlantSeed(Vector3Int cellPos)
     {
         TileBase currentTile = tilemap.GetTile(cellPos);
 
-        // 빈 땅이 아니거나 이미 작물이 존재하면 취소
         if (currentTile == null || plantedCrops.ContainsKey(cellPos))
         {
             if (infoText) infoText.text = "여기는 씨앗을 심을 수 있는 공간이 아닙니다.";
             return;
         }
 
-        if (seedCount <= 0)
+        if (seedCounts[currentSelectedCropIndex] <= 0)
         {
-            if (infoText) infoText.text = "씨앗이 부족합니다! 상점에서 구매하세요.";
+            if (infoText) infoText.text = $"{cropPrefabs[currentSelectedCropIndex].name} 씨앗이 부족합니다! 상점에서 구매하세요.";
             return;
         }
 
@@ -138,16 +189,14 @@ public class FarmingTycoon : MonoBehaviour
         Vector3 spawnPos = tilemap.GetCellCenterWorld(cellPos);
         spawnPos.z = 0f;
 
-        seedCount--;
+        seedCounts[currentSelectedCropIndex]--;
 
-        // 현재 선택된 종류의 작물 소환 및 저장소 등록
         GameObject spawnedCrop = Instantiate(cropPrefabs[currentSelectedCropIndex], spawnPos, Quaternion.identity);
         plantedCrops.Add(cellPos, spawnedCrop);
 
         Crop cropScript = spawnedCrop.GetComponent<Crop>();
         if (cropScript != null)
         {
-            // 💡 몇 번째 작물 프리팹인지 고유 인덱스를 넘겨주며 초기화합니다.
             cropScript.Initialize(currentSelectedCropIndex);
         }
 
@@ -155,17 +204,15 @@ public class FarmingTycoon : MonoBehaviour
         UpdateUI();
     }
 
-    // 주변 반경 범위 탐색 및 수확 연산
     void TryHarvestNearbyCrop()
     {
         Vector3 playerPos = playerTransform.position;
         Vector3Int foundCell = Vector3Int.zero;
         bool cropFound = false;
-        int rewardMoney = 150; // 기본 실패 방지용 단가
+        int rewardMoney = 150;
 
         Vector3Int centerCell = tilemap.WorldToCell(playerPos);
 
-        // 내 주변 3x3 격자를 검사하여 수확 가능한 첫 타겟을 물색합니다.
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
@@ -177,12 +224,11 @@ public class FarmingTycoon : MonoBehaviour
                     GameObject cropObj = plantedCrops[checkCell];
                     Crop cropScript = cropObj.GetComponent<Crop>();
 
-                    // 작물이 완전히 자란 상태(IsGrown)인지 판단
                     if (cropScript != null && cropScript.IsGrown())
                     {
                         foundCell = checkCell;
                         cropFound = true;
-                        rewardMoney = cropScript.sellPrice; // 작물 고유 가치 반영
+                        rewardMoney = cropScript.sellPrice;
                         break;
                     }
                 }
@@ -197,7 +243,6 @@ public class FarmingTycoon : MonoBehaviour
             money += rewardMoney;
             if (infoText) infoText.text = $"작물을 수확했습니다! +{rewardMoney}원 (F)";
 
-            // 맵에서 지우고 오브젝트 파괴 (바닥은 원래 타일 유지)
             plantedCrops.Remove(foundCell);
             Destroy(cropObj);
 
@@ -209,52 +254,37 @@ public class FarmingTycoon : MonoBehaviour
         }
     }
 
-    // 씨앗 상점 연동 함수
-    public void BuySeedButton()
-    {
-        if (isGameOver) return;
-
-        if (money >= 50)
-        {
-            money -= 50;
-            seedCount++;
-            if (infoText) infoText.text = "씨앗 구매 완료! (밭 위에서 E를 누르세요)";
-        }
-        else
-        {
-            if (infoText) infoText.text = "돈이 부족합니다!";
-        }
-        UpdateUI();
-    }
-
-    // 💡 [세금 납부 완료 시 루프] 시간 +1분 추가 및 목표 상향 연산
     public void ClickPayTaxButton()
     {
         if (isGameOver) return;
 
         if (money >= taxGoal)
         {
-            money -= taxGoal; // 보유금 차감
+            money -= taxGoal;
 
-            currentDay++;                             // 일수 증가
-            timeLeft += 60f;                          // 💡 현실 시간 1분 추가
-            taxGoal = Mathf.CeilToInt(taxGoal * 1.3f); // 💡 세금 목표치 30% 증가
+            currentDay++;
+            timeLeft += 60f;
+            taxGoal = Mathf.CeilToInt(taxGoal * 1.3f);
 
             if (infoText) infoText.text = $"🎉 세금 납부 성공! [Day {currentDay}]가 시작되었습니다. (시간 +1분, 목표 금액 증가)";
         }
         UpdateUI();
     }
 
-    // UI 정보 동기화 (보유금과 세금 목표 분리 표기 반영)
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (moneyText) moneyText.text = $"보유 자산: {money}원";
         if (taxGoalText) taxGoalText.text = $"목표 세금: {taxGoal}원 [Day {currentDay}]";
 
-        if (seedText) seedText.text = $"보유 씨앗: {seedCount}개";
+        if (seedText && cropPrefabs.Count > currentSelectedCropIndex && cropPrefabs[currentSelectedCropIndex] != null)
+        {
+            string currentName = cropPrefabs[currentSelectedCropIndex].name;
+            int currentQty = seedCounts[currentSelectedCropIndex];
+            seedText.text = $"선택된 씨앗: {currentName} ({currentQty}개 보유)";
+        }
+
         if (timerText) timerText.text = $"남은 시간: {Mathf.CeilToInt(timeLeft)}초";
 
-        // 세금 충족 여부 실시간 버튼 상태 스위칭
         if (payTaxButton != null)
         {
             if (money >= taxGoal) payTaxButton.interactable = true;
@@ -262,16 +292,12 @@ public class FarmingTycoon : MonoBehaviour
         }
     }
 
-    // 시간 마감 단계 검사
     void CheckTimeOver()
     {
         if (money < taxGoal)
         {
             isGameOver = true;
-            // 💡 금액 납부 실패 시 바로 알림 텍스트 출력!
             if (infoText) infoText.text = "🚨 세금을 내지 못해 파산했습니다... 게임 오버!";
-
-            // 💡 약 2초 가량 딜레이를 주는 코루틴 작동
             StartCoroutine(GameOverDelayRoutine());
         }
         else
@@ -280,35 +306,94 @@ public class FarmingTycoon : MonoBehaviour
         }
     }
 
-    // 💡 2초 시간차를 두고 현재 씬을 완전 초기화 로드하는 루틴
     IEnumerator GameOverDelayRoutine()
     {
-        // 타임스케일에 방해받지 않는 실시간 2초 정지
         yield return new WaitForSecondsRealtime(2f);
 
+        // ==========================================
+        // 📊 [기획 구현 1] JSON에 이번 회차 성적표 기록
+        // ==========================================
+        if (GameDataManager.Instance != null)
+        {
+            // 1. 새로운 성적표 객체를 한 장 새로 만듭니다.
+            GameRecord newRecord = new GameRecord();
+
+            // 2. 성적표 내용을 채웁니다.
+            newRecord.playNumber = GameDataManager.Instance.saveData.historyRecords.Count + 1;
+            newRecord.survivedDays = this.currentDay; // 버틴 일수
+            newRecord.totalMoney = this.money;       // 최종 코인
+
+            // 3. 누적 가방(리스트)에 이 성적표를 넣어줍니다.
+            GameDataManager.Instance.saveData.historyRecords.Add(newRecord);
+
+            // 4. 리스트가 포함된 최종 데이터를 JSON으로 저장합니다.
+            GameDataManager.Instance.SaveJsonData();
+        }
+
+        // ==========================================
+        // 🏆 [기획 구현 2] PlayerPrefs에 역대 최고 점수 기록
+        // ==========================================
+        // 기존에 저장된 역대 최고 일수를 가져옵니다 (없으면 0)
+        int bestDay = PlayerPrefs.GetInt("BestSurvivedDay", 0);
+
+        // 이번 기록이 기존 기록보다 높다면 갱신!
+        if (this.currentDay > bestDay)
+        {
+            PlayerPrefs.SetInt("BestSurvivedDay", this.currentDay);
+            Debug.Log($"🏆 [최고 기록 갱신!] 이전 기록: {bestDay}일 -> 신기록: {currentDay}일");
+        }
+
+        // 기존 로그라이크 보너스 로직 유지
         int legacy = money / 2;
         PlayerPrefs.SetInt("LegacyBonus", legacy);
+
+        int currentSeedBonus = PlayerPrefs.GetInt("SeedBonus", 0);
+        PlayerPrefs.SetInt("SeedBonus", currentSeedBonus + 3);
+
         PlayerPrefs.Save();
 
-        // 유니티 현재 액티브 씬명으로 다시 재시작 로드
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-        );
+        // 파산 시 메인 타이틀 화면으로 복귀
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
 
     // ==========================================
-    // 💾 [JSON 기반 데이터 세이브 / 로드 세부 구현]
+    // 💾 [세이브 / 로드 구역]
     // ==========================================
 
     public void SaveGameData()
     {
-        SaveData data = new SaveData();
+        Debug.Log("🎯 [FarmingTycoon] 저장 버튼이 성공적으로 클릭되었습니다!");
+
+        if (GameDataManager.Instance == null)
+        {
+            Debug.LogError("❌ [FarmingTycoon] GameDataManager 인스턴스를 찾을 수 없어 저장이 취소되었습니다.");
+            if (infoText) infoText.text = "저장 실패: 데이터 매니저가 없습니다.";
+            return;
+        }
+
+        SaveData data = GameDataManager.Instance.saveData;
+
         data.money = this.money;
-        data.seedCount = this.seedCount;
         data.timeLeft = this.timeLeft;
         data.taxGoal = this.taxGoal;
         data.currentDay = this.currentDay;
 
+        if (playerTransform != null)
+        {
+            data.playerPosX = playerTransform.position.x;
+            data.playerPosY = playerTransform.position.y;
+            data.playerPosZ = playerTransform.position.z;
+        }
+
+        if (this.seedCounts != null && data.seedCounts != null)
+        {
+            for (int i = 0; i < seedCounts.Length; i++)
+            {
+                data.seedCounts[i] = this.seedCounts[i];
+            }
+        }
+
+        data.plantedCropsList.Clear();
         foreach (KeyValuePair<Vector3Int, GameObject> pair in plantedCrops)
         {
             if (pair.Value != null)
@@ -322,45 +407,50 @@ public class FarmingTycoon : MonoBehaviour
                     cropData.cropIndex = cropScript.cropPrefabIndex;
                     cropData.isGrown = cropScript.IsGrown();
 
-                    data.plantedCropsList.Add(cropData); // 대소문자 오타 수정완료 (.Add)
+                    data.plantedCropsList.Add(cropData);
                 }
             }
         }
 
-        string json = JsonUtility.ToJson(data, true);
-        string path = Path.Combine(Application.persistentDataPath, "FarmingSave.json");
-        File.WriteAllText(path, json);
+        GameDataManager.Instance.SaveJsonData();
 
-        if (infoText) infoText.text = "💾 게임 데이터가 무사히 내부 저장소에 세이브되었습니다!";
+        Debug.Log("💾 [FarmingTycoon] JSON 세이브 파일에 최종 수치가 기록 완료되었습니다!");
+        if (infoText) infoText.text = "[저장 완료] 게임 데이터가 안전하게 보존되었습니다!";
     }
 
     public void LoadGameData()
     {
-        string path = Path.Combine(Application.persistentDataPath, "FarmingSave.json");
+        if (GameDataManager.Instance == null) return;
 
-        if (!File.Exists(path))
-        {
-            if (infoText) infoText.text = "불러올 이전 저장 파일이 발견되지 않았습니다.";
-            return;
-        }
-
-        string json = File.ReadAllText(path);
-        SaveData data = JsonUtility.FromJson<SaveData>(json);
+        GameDataManager.Instance.LoadjsonData();
+        SaveData data = GameDataManager.Instance.saveData;
 
         this.money = data.money;
-        this.seedCount = data.seedCount;
         this.timeLeft = data.timeLeft;
         this.taxGoal = data.taxGoal;
         this.currentDay = data.currentDay;
 
-        // 월드상 깔려있던 작물들 잔여 오브젝트 소거
+        if (data.seedCounts != null && data.seedCounts.Length == this.seedCounts.Length)
+        {
+            for (int i = 0; i < seedCounts.Length; i++)
+            {
+                this.seedCounts[i] = data.seedCounts[i];
+            }
+        }
+
+        if (playerTransform != null)
+        {
+            playerTransform.position = new Vector3(data.playerPosX, data.playerPosY, data.playerPosZ);
+            Rigidbody2D rb = playerTransform.GetComponent<Rigidbody2D>();
+            if (rb != null) rb.linearVelocity = Vector2.zero;
+        }
+
         foreach (GameObject cropObj in plantedCrops.Values)
         {
             if (cropObj != null) Destroy(cropObj);
         }
         plantedCrops.Clear();
 
-        // 파싱된 데이터 기반 작물 복구 재소환
         foreach (CropSaveData cropData in data.plantedCropsList)
         {
             Vector3Int cellPos = new Vector3Int(cropData.cellX, cropData.cellY, 0);
@@ -376,18 +466,17 @@ public class FarmingTycoon : MonoBehaviour
                 if (cropScript != null)
                 {
                     cropScript.Initialize(cropData.cropIndex);
-
-                    // 만약 세이브 당시 다 성장한 작물이었다면, 즉시 강제 개화 처리
                     if (cropData.isGrown)
                     {
                         cropScript.StopAllCoroutines();
-                        cropScript.CompleteGrowth(); // 작물 즉시 성장 함수 호출
+                        cropScript.CompleteGrowth();
                     }
                 }
             }
         }
 
-        if (infoText) infoText.text = "📂 마지막으로 세이브했던 일자 데이터가 로드되었습니다!";
+        // 💡 불러온 직후 최신 수치를 UI 오브젝트들에 강제 새로고침합니다.
         UpdateUI();
+        if (infoText) infoText.text = "[로드 완료] 이어서 시작합니다!";
     }
 }

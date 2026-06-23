@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4953182423799867993}
   - component: {fileID: 2469485641180686075}
   m_Layer: 0
-  m_Name: Crop
+  m_Name: Crop 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4911309476657525884, guid: 8fce357caa70a0b40a465c8953e730b3, type: 3}
+  m_Sprite: {fileID: 4279661659218614667, guid: 8fce357caa70a0b40a465c8953e730b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fa9d5d9fa1b9c4caec0737970319ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Crop
-  growTime: 3
-  sellPrice: 150
-  seededSprite: {fileID: 4911309476657525884, guid: 8fce357caa70a0b40a465c8953e730b3, type: 3}
-  grownSprite: {fileID: 734389695917854788, guid: 8fce357caa70a0b40a465c8953e730b3, type: 3}
+  growTime: 7
+  sellPrice: 300
+  seededSprite: {fileID: 4279661659218614667, guid: 8fce357caa70a0b40a465c8953e730b3, type: 3}
+  grownSprite: {fileID: 6256297627574041103, guid: 8fce357caa70a0b40a465c8953e730b3, type: 3}
   cropPrefabIndex: 0
